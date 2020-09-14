@@ -1,6 +1,6 @@
 <template>
   <div id="nativeShare">
-    <div class="label">分享到</div>
+    <div class="label">分享到平台</div>
     <div class="list">
       <span class="list-item" v-for="(button, index) in shareButtons" :key="index">
         <img :src="button.src" class="i" @click="call(button)">
@@ -30,6 +30,7 @@ export default {
   props: {
     config: Object,
     shareMenu: Array,
+    wxConfig:Object
   },
   computed: {
     shareButtons() {
@@ -58,7 +59,7 @@ export default {
             imgUrl: this.config.img, // 图片, 默认取网页中第一个img标签
             fnDoShare: this.config.success,
       }
-      let nativeShare = new NativeShare()
+      let nativeShare = new NativeShare(this.wxConfig)
       nativeShare.setShareData(shareData)
       try {
         nativeShare.call(command.nativeshare)

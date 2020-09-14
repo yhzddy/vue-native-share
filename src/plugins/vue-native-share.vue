@@ -13,6 +13,7 @@
 <script>
 import NativeShare from 'nativeshare'
 import mShare from 'm-share'
+import func from '../../vue-temp/vue-editor-bridge'
 export default {
   name: 'vue-share-native',
   data() {
@@ -30,7 +31,11 @@ export default {
   props: {
     config: Object,
     shareMenu: Array,
-    wxConfig:Object
+    wxConfig:{
+      default:function(){
+        return {}
+      }
+    }
   },
   computed: {
     shareButtons() {

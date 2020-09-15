@@ -13,7 +13,7 @@
 <script>
 import NativeShare from 'nativeshare'
 import mShare from 'm-share'
-import func from '../../vue-temp/vue-editor-bridge'
+
 export default {
   name: 'vue-share-native',
   data() {
